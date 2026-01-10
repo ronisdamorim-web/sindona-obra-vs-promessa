@@ -1,0 +1,319 @@
+{
+    "sindonaParaiso": {
+        "metadata": {
+            "nome": "Sindona Paraíso",
+            "construtora": "Vitra Engenharia",
+            "siteOficial": "https://vitraengenharia.com.br/empreendimento/sin-paraiso/",
+            "status": {
+                "vitra": {
+                    "total": 15,
+                    "atualizacao": "17/12/2025",
+                    "etapas": {
+                        "preliminares": 100,
+                        "terraplanagem": 50,
+                        "fundacao": 60,
+                        "estrutura": 9,
+                        "alvenaria": 0,
+                        "hidraulica": 2.3,
+                        "eletrica": 3,
+                        "demais": 0
+                    }
+                },
+                "caixa": {
+                    "total": 29.96
+                },
+                "nota": "Os percentuais apresentados provêm de fontes distintas e podem utilizar critérios diferentes de medição de avanço físico."
+            }
+        },
+        "comparacoes": [
+            {
+                "id": "fachada-principal",
+                "titulo": "Evolução da Estrutura",
+                "promessa": {
+                    "imagem": "/images/promessa/render_torres.jpg",
+                    "label": "Perspectiva Artística",
+                    "fonte": "Imagem promocional — material institucional do empreendimento"
+                },
+                "realidade": {
+                    "imagem": "/images/obra-real/estrutura_real.jpg",
+                    "label": "Obra Real (Dez 2025)",
+                    "fonte": "Fonte: Wally Nunes (Walisson Nunes) — YouTube • Frame de vídeo público (2025)"
+                },
+                "analise": "Comparativo direto entre a projeção artística das torres e o estágio atual da estrutura física. Nota-se a evolução das lajes e a fidelidade volumétrica inicial em relação ao projeto arquitetônico proposto.",
+                "status": "em-execucao"
+            },
+            {
+                "id": "implantacao-lazer",
+                "titulo": "Implantação e Canteiro",
+                "promessa": {
+                    "imagem": "/images/promessa/implantacao.jpg",
+                    "label": "Masterplan (Implantação)",
+                    "fonte": "Imagem promocional — material institucional do empreendimento"
+                },
+                "realidade": {
+                    "imagem": "/images/obra-real/implantacao_real.jpg",
+                    "label": "Vista Aérea (Drone)",
+                    "fonte": "Fonte: Wally Nunes (Walisson Nunes) — YouTube • Frame de vídeo público (2025)"
+                },
+                "analise": "Vista aérea abrangente que permite observar a distribuição do canteiro de obras em relação ao desenho de implantação originalmente divulgado aos compradores.",
+                "status": "em-execucao"
+            }
+        ],
+        "galeriasComplementares": {
+            "promessa": [
+                {
+                    "id": "render-preview",
+                    "src": "/images/promessa/render_torres.jpg",
+                    "title": "Perspectiva Institucional"
+                },
+                {
+                    "id": "implantacao-preview",
+                    "src": "/images/promessa/implantacao.jpg",
+                    "title": "Planta de Implantação"
+                },
+                {
+                    "id": "promessa-quarto-casal",
+                    "src": "/images/promessa/promessa_quarto_casal.jpg",
+                    "title": "Decorado: Quarto Casal"
+                },
+                {
+                    "id": "promessa-varanda",
+                    "src": "/images/promessa/promessa_varanda.jpg",
+                    "title": "Decorado: Varanda Gourmet"
+                },
+                {
+                    "id": "promessa-sala-jantar",
+                    "src": "/images/promessa/promessa_sala_jantar.jpg",
+                    "title": "Decorado: Sala de Jantar"
+                },
+                {
+                    "id": "promessa-quarto-solteiro",
+                    "src": "/images/promessa/promessa_quarto_solteiro.jpg",
+                    "title": "Decorado: Quarto Solteiro"
+                },
+                {
+                    "id": "promessa-sala-estar",
+                    "src": "/images/promessa/promessa_sala_estar.jpg",
+                    "title": "Decorado: Sala de Estar"
+                },
+                {
+                    "id": "p-01",
+                    "src": "/images/promessa/117150a1689c21d99231b8d7fc0b3f9120fd80746eee6df91cd767983e44d64bw.jpg",
+                    "title": "Perspectiva Ilustrativa"
+                },
+                {
+                    "id": "p-02",
+                    "src": "/images/promessa/20057b8a5c72ef3bb3c46338c0225e5cbd5fb9f794c7d8869175bb0d81a37b61w.jpg",
+                    "title": "Área de Lazer"
+                },
+                {
+                    "id": "p-03",
+                    "src": "/images/promessa/31709b5dbc4fcf0fd1d3f9e6d2743ed876b95207013bb0e75784ffaffe9c65d8w.jpg",
+                    "title": "Detalhes do Interior"
+                },
+                {
+                    "id": "p-04",
+                    "src": "/images/promessa/55373fe51156674b494e9265fd4dd2cb5c3cccd0f92ddd0a25fc279365b593edw.jpg",
+                    "title": "Perspectiva da Fachada"
+                },
+                {
+                    "id": "p-05",
+                    "src": "/images/promessa/6052a63aea52666f014e88c321d5417fb80a383e88d27493754de406fc0eb46dw.jpg",
+                    "title": "Ambiente Integrado"
+                },
+                {
+                    "id": "p-06",
+                    "src": "/images/promessa/77e9621f33d8d2635b41ff3fd13f74f2d37ae8c9e8b73afe0502aefb64490faaw.jpg",
+                    "title": "Vista Panorâmica"
+                },
+                {
+                    "id": "p-07",
+                    "src": "/images/promessa/82a406e1de4156e8218ec1bf614042cce1048a2ecd2ef5593f112dd7966869a0w.jpg",
+                    "title": "Área Externa"
+                },
+                {
+                    "id": "p-08",
+                    "src": "/images/promessa/859a6fe5847a2e7683dffebbeaacc913ae1629ba4d006afe64981a16b7549d45w.jpg",
+                    "title": "Detalhes de Acabamento"
+                },
+                {
+                    "id": "p-09",
+                    "src": "/images/promessa/9bf6f59fd5827602e0ebf60a39c826ea8dd0054200209f899ae1e947fc63b3e3w.jpg",
+                    "title": "Perspectiva Noturna"
+                },
+                {
+                    "id": "p-10",
+                    "src": "/images/promessa/b419ba8c7b1e11a6ad4233423509c305210d3d2ef921873ee763818eb19da6f3w.jpg",
+                    "title": "Hall de Entrada"
+                },
+                {
+                    "id": "p-11",
+                    "src": "/images/promessa/b660c6b7c150fd3a05a33b9f7c9e3d57b7453f61a0b1674f7aec6957256c8b68w.jpg",
+                    "title": "Espaço Fitness"
+                },
+                {
+                    "id": "p-12",
+                    "src": "/images/promessa/b7a0fbee6b285b4d772f67eedefb1ecd2e45859e4bf7d2280271243161983214w.jpg",
+                    "title": "Bicicletário"
+                },
+                {
+                    "id": "p-13",
+                    "src": "/images/promessa/c23965ae5c9451dec2e5a016e3507ae230092e5dc334e606cadcf05df42245ebw.jpg",
+                    "title": "Salão de Festas"
+                },
+                {
+                    "id": "p-14",
+                    "src": "/images/promessa/d59344bac0cbf883c8fdc913546aa3a431ec094ccd7c23f8bd895378e8235dfbw.jpg",
+                    "title": "Playground"
+                },
+                {
+                    "id": "p-15",
+                    "src": "/images/promessa/d8230241f95d491149114af5845def6db2e1ea87a432f3f585bae8b293f761e0w.jpg",
+                    "title": "Coworking"
+                },
+                {
+                    "id": "p-16",
+                    "src": "/images/promessa/e29675fad3f87a4b9ca2b3b76fd500ab365658bcfbcaf5e119f217d0c97047c3w.jpg",
+                    "title": "Espaço Gourmet"
+                },
+                {
+                    "id": "p-17",
+                    "src": "/images/promessa/e47e720bc5f85a277ac9645f351a4e7a69eea2e28143fc27e55d4f7bba84d004w.jpg",
+                    "title": "Piscina"
+                },
+                {
+                    "id": "p-18",
+                    "src": "/images/promessa/e6b3ad6e803c2bb80b7b7476fa4f24fd3efa5caec8073963b464fa17ff69883aw.jpg",
+                    "title": "Churrasqueira"
+                },
+                {
+                    "id": "p-19",
+                    "src": "/images/promessa/f59ae0fa9f506241fb88a7d6e0a64666c290ee0a3b59d44afd81882e54217e7cw.jpg",
+                    "title": "Pet Place"
+                },
+                {
+                    "id": "p-20",
+                    "src": "/images/promessa/promessa_piscina_deck.jpg",
+                    "title": "Piscina e Deck"
+                }
+            ],
+            "obra": [
+                {
+                    "id": "obra-estrutura",
+                    "src": "/images/obra-real/estrutura_real.jpg",
+                    "title": "Concretagem da Laje"
+                },
+                {
+                    "id": "obra-aerea",
+                    "src": "/images/obra-real/implantacao_real.jpg",
+                    "title": "Vista Aérea do Canteiro"
+                },
+                {
+                    "id": "o-01",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160528.png",
+                    "title": "Acompanhamento de Obra (16:05)"
+                },
+                {
+                    "id": "o-02",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160603.png",
+                    "title": "Acompanhamento de Obra (16:06)"
+                },
+                {
+                    "id": "o-03",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160704.png",
+                    "title": "Acompanhamento de Obra (16:07)"
+                },
+                {
+                    "id": "o-04",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160730.png",
+                    "title": "Acompanhamento de Obra (16:07)"
+                },
+                {
+                    "id": "o-05",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160756.png",
+                    "title": "Acompanhamento de Obra (16:07)"
+                },
+                {
+                    "id": "o-06",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160843.png",
+                    "title": "Acompanhamento de Obra (16:08)"
+                },
+                {
+                    "id": "o-07",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 160904.png",
+                    "title": "Acompanhamento de Obra (16:09)"
+                },
+                {
+                    "id": "o-08",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161055.png",
+                    "title": "Acompanhamento de Obra (16:10)"
+                },
+                {
+                    "id": "o-09",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161129.png",
+                    "title": "Acompanhamento de Obra (16:11)"
+                },
+                {
+                    "id": "o-10",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161149.png",
+                    "title": "Acompanhamento de Obra (16:11)"
+                },
+                {
+                    "id": "o-11",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161241.png",
+                    "title": "Acompanhamento de Obra (16:12)"
+                },
+                {
+                    "id": "o-12",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161310.png",
+                    "title": "Acompanhamento de Obra (16:13)"
+                },
+                {
+                    "id": "o-13",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161418.png",
+                    "title": "Acompanhamento de Obra (16:14)"
+                },
+                {
+                    "id": "o-14",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161558.png",
+                    "title": "Acompanhamento de Obra (16:15)"
+                },
+                {
+                    "id": "o-15",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161645.png",
+                    "title": "Acompanhamento de Obra (16:16)"
+                },
+                {
+                    "id": "o-16",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161702.png",
+                    "title": "Acompanhamento de Obra (16:17)"
+                },
+                {
+                    "id": "o-17",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161720.png",
+                    "title": "Acompanhamento de Obra (16:17)"
+                },
+                {
+                    "id": "o-18",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161759.png",
+                    "title": "Acompanhamento de Obra (16:17)"
+                },
+                {
+                    "id": "o-19",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161842.png",
+                    "title": "Acompanhamento de Obra (16:18)"
+                },
+                {
+                    "id": "o-20",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 161923.png",
+                    "title": "Acompanhamento de Obra (16:19)"
+                },
+                {
+                    "id": "o-21",
+                    "src": "/images/obra-real/Captura de tela 2026-01-09 162036.png",
+                    "title": "Acompanhamento de Obra (16:20)"
+                }
+            ]
+        }
+    }
+}
