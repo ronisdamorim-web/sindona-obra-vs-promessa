@@ -115,6 +115,30 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
                     </div>
                 )}
 
+                {/* Mobile Swipe Hint */}
+                {showMobileHint && (
+                    <div className="md:hidden absolute top-3 left-0 right-0 flex justify-center z-40 pointer-events-none">
+                        <div className="bg-black/60 px-3 py-1.5 rounded-full">
+                            <p className="text-white/80 text-[10px] font-mono tracking-wide">
+                                ⬅️ Arraste para ver mais ➡️
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Mobile Pagination Dots */}
+                <div className="md:hidden absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-30 pointer-events-none">
+                    {items.map((_, index) => (
+                        <div
+                            key={index}
+                            className={cn(
+                                "w-1.5 h-1.5 rounded-full transition-all duration-300",
+                                index === currentIndex ? "bg-white w-4" : "bg-white/40"
+                            )}
+                        />
+                    ))}
+                </div>
+
                 {/* Images */}
                 {items.map((item, index) => (
                     <div
