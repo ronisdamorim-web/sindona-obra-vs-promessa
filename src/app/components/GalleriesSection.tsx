@@ -400,7 +400,7 @@ export default function GalleriesSection({ externalContent }: { externalContent?
                                     Registro Visual da Obra (Real)
                                 </h3>
                                 <p className="mb-2">
-                                    Imagens capturadas e compiladas a partir de registros públicos do corretor e youtuber
+                                    Imagens capturadas e compiladas a partir de registros públicos do youtuber
                                     <strong className="text-stone-300"> Wally Nunes (Walisson Nunes)</strong>.
                                 </p>
                                 <a href="https://www.youtube.com/@walissonnunes2901" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition-colors">
