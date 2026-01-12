@@ -26,6 +26,7 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [isZoomed, setIsZoomed] = useState(false);
+    const [showMobileHint, setShowMobileHint] = useState(true);
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
     const isPromessa = type === 'promessa';
@@ -52,6 +53,12 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
     }, [isHovered, isZoomed, nextSlide]);
+
+    // Hide mobile hint after 3 seconds
+    useEffect(() => {
+        const timer = setTimeout(() => setShowMobileHint(false), 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Keyboard Navigation for Zoom Mode
     useEffect(() => {
@@ -81,6 +88,11 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
         }
     };
 
+    const handleClick = () => {
+        setShowMobileHint(false);
+        setIsZoomed(true);
+    };
+
     return (
         <>
             {/* THUMBNAIL / CAROUSEL VIEW */}
@@ -88,9 +100,20 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
                 className="group relative w-full aspect-[4/3] bg-zinc-900 rounded-lg overflow-hidden border border-white/5 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:z-10 cursor-pointer"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                onClick={() => setIsZoomed(true)}
+                onClick={handleClick}
             >
                 <div className={cn("absolute inset-0 border-2 border-transparent transition-colors duration-300 pointer-events-none z-20", borderColor)} />
+
+                {/* Mobile Hint Overlay */}
+                {showMobileHint && (
+                    <div className="md:hidden absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] z-40 transition-opacity duration-500">
+                        <div className="bg-black/60 px-4 py-2 rounded-lg border border-white/20">
+                            <p className="text-white/90 text-xs font-mono tracking-wide">
+                                Toque para abrir
+                            </p>
+                        </div>
+                    </div>
+                )}
 
                 {/* Images */}
                 {items.map((item, index) => (
