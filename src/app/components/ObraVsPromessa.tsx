@@ -56,49 +56,49 @@ export default function ObraVsPromessa({
     // MOBILE LAYOUT - Vertical Stack
     if (isMobile) {
         return (
-            <section className="w-full min-h-screen snap-start bg-black text-white py-8 px-4">
+            <section className="w-full min-h-screen snap-start bg-black text-white py-10 px-5">
                 {/* Título e Análise no Topo */}
-                <div className="mb-8 text-center">
-                    <h2 className="font-serif text-2xl text-white mb-3 leading-tight">
+                <div className="mb-10 text-center">
+                    <h2 className="font-serif text-2xl sm:text-3xl text-white mb-4 leading-tight px-2">
                         {titulo}
                     </h2>
-                    <p className="text-white/80 text-base font-light leading-relaxed max-w-xl mx-auto">
+                    <p className="text-white/90 text-lg sm:text-xl font-light leading-relaxed max-w-xl mx-auto px-2">
                         {analise}
                     </p>
                 </div>
 
                 {/* Promessa */}
-                <div className="mb-8">
-                    <div className="mb-2 flex items-center justify-center gap-2">
-                        <span className="text-indigo-400 font-mono text-xs tracking-widest uppercase font-bold">
+                <div className="mb-10">
+                    <div className="mb-3 flex items-center justify-center gap-2">
+                        <span className="text-indigo-400 font-mono text-sm tracking-widest uppercase font-bold">
                             {promessa.label}
                         </span>
                     </div>
                     <img
                         src={promessa.imagem}
                         alt={promessa.label}
-                        className="w-full h-auto rounded-lg border border-indigo-500/30"
+                        className="w-full h-auto rounded-lg border-2 border-indigo-500/40 shadow-lg"
                         draggable={false}
                     />
-                    <p className="text-[10px] text-white/50 font-mono mt-2 text-center leading-tight px-2">
+                    <p className="text-xs text-white/60 font-mono mt-3 text-center leading-relaxed px-3">
                         {promessa.fonte}
                     </p>
                 </div>
 
                 {/* Realidade */}
-                <div className="mb-8">
-                    <div className="mb-2 flex items-center justify-center gap-2">
-                        <span className="text-red-400 font-mono text-xs tracking-widest uppercase font-bold">
+                <div className="mb-10">
+                    <div className="mb-3 flex items-center justify-center gap-2">
+                        <span className="text-red-400 font-mono text-sm tracking-widest uppercase font-bold">
                             {realidade.label}
                         </span>
                     </div>
                     <img
                         src={realidade.imagem}
                         alt={realidade.label}
-                        className="w-full h-auto rounded-lg border border-red-500/30"
+                        className="w-full h-auto rounded-lg border-2 border-red-500/40 shadow-lg"
                         draggable={false}
                     />
-                    <p className="text-[10px] text-white/50 font-mono mt-2 text-center leading-tight px-2">
+                    <p className="text-xs text-white/60 font-mono mt-3 text-center leading-relaxed px-3">
                         {realidade.fonte}
                     </p>
                 </div>

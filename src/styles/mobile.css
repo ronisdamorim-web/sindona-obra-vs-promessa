@@ -14,11 +14,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Ensure no absolute positioned duplicates */
-  .absolute {
-    position: relative !important;
-  }
-
   /* Reset z-index issues on mobile */
   section {
     position: relative;
