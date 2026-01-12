@@ -1,4 +1,4 @@
-import { useState, useRef, MouseEvent, TouchEvent } from 'react';
+import { useState, useRef, MouseEvent, TouchEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MoveHorizontal, ChevronDown, Info } from 'lucide-react';
 
@@ -26,10 +26,21 @@ export default function ObraVsPromessa({
 }: ObraVsPromessaProps) {
     const [sliderPosition, setSliderPosition] = useState(50);
     const [showInfo, setShowInfo] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Detect mobile viewport
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const updatePosition = (clientX: number) => {
-        if (!containerRef.current) return;
+        if (!containerRef.current || isMobile) return;
         const rect = containerRef.current.getBoundingClientRect();
         const x = clientX - rect.left;
         const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
@@ -37,15 +48,70 @@ export default function ObraVsPromessa({
     };
 
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-        // Enable simple hover-follow or drag. 
-        // For fullscreen impact, 'drag' feels more intentional, but 'hover' is fluid.
-        // Let's stick to click-drag or just click for now to avoid jittery fullscreen moves.
-        // Actually, widespread 'before/after' sliders often use drag.
-        if (e.buttons === 1) updatePosition(e.clientX);
+        if (e.buttons === 1 && !isMobile) updatePosition(e.clientX);
     };
 
     const handleInteractionStart = () => setShowInfo(false);
 
+    // MOBILE LAYOUT - Vertical Stack
+    if (isMobile) {
+        return (
+            <section className="w-full min-h-screen snap-start bg-black text-white py-8 px-4">
+                {/* Título e Análise no Topo */}
+                <div className="mb-8 text-center">
+                    <h2 className="font-serif text-2xl text-white mb-3 leading-tight">
+                        {titulo}
+                    </h2>
+                    <p className="text-white/80 text-base font-light leading-relaxed max-w-xl mx-auto">
+                        {analise}
+                    </p>
+                </div>
+
+                {/* Promessa */}
+                <div className="mb-8">
+                    <div className="mb-2 flex items-center justify-center gap-2">
+                        <span className="text-indigo-400 font-mono text-xs tracking-widest uppercase font-bold">
+                            {promessa.label}
+                        </span>
+                    </div>
+                    <img
+                        src={promessa.imagem}
+                        alt={promessa.label}
+                        className="w-full h-auto rounded-lg border border-indigo-500/30"
+                        draggable={false}
+                    />
+                    <p className="text-[10px] text-white/50 font-mono mt-2 text-center leading-tight px-2">
+                        {promessa.fonte}
+                    </p>
+                </div>
+
+                {/* Realidade */}
+                <div className="mb-8">
+                    <div className="mb-2 flex items-center justify-center gap-2">
+                        <span className="text-red-400 font-mono text-xs tracking-widest uppercase font-bold">
+                            {realidade.label}
+                        </span>
+                    </div>
+                    <img
+                        src={realidade.imagem}
+                        alt={realidade.label}
+                        className="w-full h-auto rounded-lg border border-red-500/30"
+                        draggable={false}
+                    />
+                    <p className="text-[10px] text-white/50 font-mono mt-2 text-center leading-tight px-2">
+                        {realidade.fonte}
+                    </p>
+                </div>
+
+                {/* Scroll Hint */}
+                <div className="flex justify-center text-white/30 animate-bounce mt-8">
+                    <ChevronDown className="w-6 h-6" />
+                </div>
+            </section>
+        );
+    }
+
+    // DESKTOP LAYOUT - Interactive Slider
     return (
         <section
             className="relative w-full h-[100vh] snap-start overflow-hidden bg-black select-none"

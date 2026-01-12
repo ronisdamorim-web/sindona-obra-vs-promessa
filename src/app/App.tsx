@@ -69,22 +69,22 @@ function App() {
     <div className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-black scroll-smooth">
 
       {/* SEÇÃO 1: HERO / CAPA */}
-      <section className="h-screen w-full snap-start relative flex items-center justify-center bg-stone-950 text-white overflow-hidden">
+      <section className="min-h-screen md:h-screen w-full snap-start relative flex items-center justify-center bg-stone-950 text-white overflow-hidden py-12 md:py-0">
         {/* Background Abstract/Gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-800 via-stone-950 to-black opacity-80" />
 
-        <div className="relative z-10 text-center max-w-4xl px-6">
-          <p className="font-mono text-stone-400 tracking-[0.3em] text-sm md:text-base mb-6 uppercase">
+        <div className="relative z-10 text-center max-w-4xl px-4 md:px-6">
+          <p className="font-mono text-stone-400 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6 uppercase">
             Relatório Visual Independente
           </p>
-          <h1 className="font-serif text-5xl md:text-8xl font-bold mb-8 leading-tight">
+          <h1 className="font-serif text-4xl md:text-8xl font-bold mb-6 md:mb-8 leading-tight">
             Sindona <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Paraíso</span>
           </h1>
-          <p className="text-xl md:text-2xl text-stone-300 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-2xl text-stone-300 font-light max-w-2xl mx-auto leading-relaxed px-4">
             Obra vs Promessa: Uma investigação visual detalhada comparando os renders artísticos com a realidade atual do canteiro.
           </p>
 
-          <div className="mt-16 animate-bounce flex justify-center">
+          <div className="mt-12 md:mt-16 animate-bounce flex justify-center">
             <div className="flex flex-col items-center gap-2 text-stone-500">
               <span className="text-xs uppercase tracking-widest">Iniciar Leitura</span>
               <ArrowDown className="w-6 h-6" />
@@ -112,15 +112,15 @@ function App() {
       <GalleriesSection externalContent={content} />
 
       {/* FOOTER / CONCLUSÃO */}
-      <section className="h-[50vh] w-full snap-start bg-black flex items-center justify-center p-8">
+      <section className="min-h-[40vh] md:h-[50vh] w-full snap-start bg-black flex items-center justify-center p-6 md:p-8">
         <div className="text-center text-stone-500">
           {/* Refresh Trigger   */}
-          <p className="mb-4">{footerText.textoEncerramento}</p>
-          <p className="text-xs max-w-md mx-auto opacity-50">
+          <p className="mb-4 text-sm md:text-base">{footerText.textoEncerramento}</p>
+          <p className="text-xs max-w-md mx-auto opacity-50 leading-relaxed">
             {footerText.footerLegal}
           </p>
 
-          <div className="mt-12 text-xs opacity-40 space-y-1">
+          <div className="mt-8 md:mt-12 text-xs opacity-40 space-y-1">
             <p>{footerText.autoria.replace("Roni Amorim de Lima.", "")}</p>
             <p>Roni Amorim de Lima.</p>
             <p className="pt-2">Contato profissional:</p>

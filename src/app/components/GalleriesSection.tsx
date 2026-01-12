@@ -26,7 +26,7 @@ function HoverCarousel({ items, type }: HoverCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [isZoomed, setIsZoomed] = useState(false);
-    const intervalRef = useRef<number | null>(null);
+    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
     const isPromessa = type === 'promessa';
     const accentColor = isPromessa ? 'text-indigo-400' : 'text-emerald-400';
@@ -251,87 +251,87 @@ export default function GalleriesSection({ externalContent }: { externalContent?
     }, [externalContent]);
 
     return (
-        <section className="min-h-screen w-full snap-start bg-zinc-950 text-stone-200 py-16 px-6 md:px-12 flex flex-col justify-center border-t border-white/5">
-            <div className="max-w-6xl mx-auto w-full space-y-16">
+        <section className="min-h-screen w-full snap-start bg-zinc-950 text-stone-200 py-12 md:py-16 px-4 md:px-12 flex flex-col justify-center border-t border-white/5">
+            <div className="max-w-6xl mx-auto w-full space-y-12 md:space-y-16">
 
                 {/* 0. INFORMAÇÕES GERAIS DO PROJETO */}
                 <div>
-                    <h2 className="text-2xl font-serif mb-8 text-white border-b border-white/10 pb-4">
+                    <h2 className="text-xl md:text-2xl font-serif mb-6 md:mb-8 text-white border-b border-white/10 pb-4">
                         Projeto – Informações Gerais
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-stone-400">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-sm text-stone-400">
                         {/* Status */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Hammer className="w-5 h-5 text-indigo-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Hammer className="w-4 h-4 md:w-5 md:h-5 text-indigo-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Status</span>
-                                <span>{info.status}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Status</span>
+                                <span className="text-xs md:text-sm">{info.status}</span>
                             </div>
                         </div>
                         {/* Location */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <MapPin className="w-5 h-5 text-indigo-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-indigo-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Localização</span>
-                                <span>{info.localizacao}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Localização</span>
+                                <span className="text-xs md:text-sm">{info.localizacao}</span>
                             </div>
                         </div>
                         {/* Dorms */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <BedDouble className="w-5 h-5 text-purple-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <BedDouble className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Dormitórios</span>
-                                <span>{info.tipologias}</span>
-                                <span className="text-xs opacity-60 block">{info.tipologiasSub}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Dormitórios</span>
+                                <span className="text-xs md:text-sm">{info.tipologias}</span>
+                                <span className="text-[10px] md:text-xs opacity-60 block">{info.tipologiasSub}</span>
                             </div>
                         </div>
                         {/* Area */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Ruler className="w-5 h-5 text-purple-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Ruler className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Área Privativa</span>
-                                <span>{info.metragens}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Área Privativa</span>
+                                <span className="text-xs md:text-sm">{info.metragens}</span>
                             </div>
                         </div>
                         {/* Towers */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Building2 className="w-5 h-5 text-emerald-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Building2 className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Torres</span>
-                                <span>{info.torres}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Torres</span>
+                                <span className="text-xs md:text-sm">{info.torres}</span>
                             </div>
                         </div>
                         {/* Floors */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Layers className="w-5 h-5 text-emerald-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Layers className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Pavimentos</span>
-                                <span>{info.pavimentos}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Pavimentos</span>
+                                <span className="text-xs md:text-sm">{info.pavimentos}</span>
                             </div>
                         </div>
                         {/* Parking */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Car className="w-5 h-5 text-amber-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Car className="w-4 h-4 md:w-5 md:h-5 text-amber-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Vagas</span>
-                                <span>{info.vagas}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Vagas</span>
+                                <span className="text-xs md:text-sm">{info.vagas}</span>
                             </div>
                         </div>
                         {/* Terrain */}
-                        <div className="flex flex-col gap-2 p-4 bg-zinc-900/30 rounded border border-white/5">
-                            <Trees className="w-5 h-5 text-amber-400" />
+                        <div className="flex flex-col gap-2 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5">
+                            <Trees className="w-4 h-4 md:w-5 md:h-5 text-amber-400" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Terreno</span>
-                                <span>{info.terreno}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Terreno</span>
+                                <span className="text-xs md:text-sm">{info.terreno}</span>
                             </div>
                         </div>
 
                         {/* Full Width Address */}
-                        <div className="col-span-2 md:col-span-4 p-4 bg-zinc-900/30 rounded border border-white/5 flex items-start gap-3">
-                            <MapPin className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                        <div className="col-span-1 sm:col-span-2 md:col-span-4 p-3 md:p-4 bg-zinc-900/30 rounded border border-white/5 flex items-start gap-3">
+                            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-rose-400 shrink-0 mt-0.5" />
                             <div>
-                                <span className="block text-white font-bold text-xs uppercase tracking-wider mb-1">Endereço do Estande / Obra</span>
-                                <span className="text-stone-300">{info.endereco}</span>
+                                <span className="block text-white font-bold text-[10px] md:text-xs uppercase tracking-wider mb-1">Endereço do Estande / Obra</span>
+                                <span className="text-xs md:text-sm text-stone-300">{info.endereco}</span>
                             </div>
                         </div>
                     </div>
@@ -339,13 +339,13 @@ export default function GalleriesSection({ externalContent }: { externalContent?
 
                 {/* 1. SEÇÃO DE GALERIAS */}
                 <div>
-                    <h2 className="text-2xl font-serif mb-8 text-white border-b border-white/10 pb-4">
+                    <h2 className="text-xl md:text-2xl font-serif mb-6 md:mb-8 text-white border-b border-white/10 pb-4">
                         Galerias Complementares
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                         {/* Coluna Esquerda: Promessa + Fonte */}
-                        <div className="space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                             {/* Galeria Promessa */}
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2 text-indigo-400 mb-2">
@@ -359,7 +359,7 @@ export default function GalleriesSection({ externalContent }: { externalContent?
                             </div>
 
                             {/* Fonte Promessa */}
-                            <div className="pt-6 border-t border-white/10 text-stone-500 text-sm">
+                            <div className="pt-4 md:pt-6 border-t border-white/10 text-stone-500 text-xs md:text-sm">
                                 <h3 className="text-white font-bold uppercase tracking-wider text-xs mb-4 flex items-center gap-2">
                                     <ImageIcon className="w-4 h-4" />
                                     Materiais Ilustrativos (Projeto / Promessa)
@@ -383,7 +383,7 @@ export default function GalleriesSection({ externalContent }: { externalContent?
                         </div>
 
                         {/* Coluna Direita: Obra Real + Fonte */}
-                        <div className="space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                             {/* Galeria Obra Real */}
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2 text-emerald-400 mb-2">
@@ -394,7 +394,7 @@ export default function GalleriesSection({ externalContent }: { externalContent?
                             </div>
 
                             {/* Fonte Obra Real */}
-                            <div className="pt-6 border-t border-white/10 text-stone-500 text-sm">
+                            <div className="pt-4 md:pt-6 border-t border-white/10 text-stone-500 text-xs md:text-sm">
                                 <h3 className="text-white font-bold uppercase tracking-wider text-xs mb-4 flex items-center gap-2">
                                     <Video className="w-4 h-4" />
                                     Registro Visual da Obra (Real)
