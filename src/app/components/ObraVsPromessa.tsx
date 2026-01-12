@@ -52,7 +52,7 @@ export default function ObraVsPromessa({
 
     if (isMobile) {
         return (
-            <section className="w-full min-h-screen snap-start bg-black text-white py-8 px-4 overflow-x-hidden">
+            <section className="w-full snap-start bg-black text-white py-6 px-4 overflow-x-hidden">
                 <div className="max-w-2xl mx-auto">
                     {/* Título e Análise */}
                     <div className="mb-8 text-center">
@@ -104,10 +104,7 @@ export default function ObraVsPromessa({
                         </p>
                     </div>
 
-                    {/* Scroll Hint */}
-                    <div className="flex justify-center text-white/30 animate-bounce mt-6">
-                        <ChevronDown className="w-6 h-6" />
-                    </div>
+
                 </div>
             </section>
         );

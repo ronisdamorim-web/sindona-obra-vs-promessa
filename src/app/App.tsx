@@ -84,7 +84,7 @@ function App() {
             Obra vs Promessa: Uma investigação visual detalhada comparando os renders artísticos com a realidade atual do canteiro.
           </p>
 
-          <div className="mt-12 md:mt-16 animate-bounce flex justify-center">
+          <div className="mt-12 md:mt-16 animate-bounce hidden md:flex justify-center">
             <div className="flex flex-col items-center gap-2 text-stone-500">
               <span className="text-xs uppercase tracking-widest">Iniciar Leitura</span>
               <ArrowDown className="w-6 h-6" />
