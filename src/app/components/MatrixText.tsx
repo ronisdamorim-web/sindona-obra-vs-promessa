@@ -1,62 +1,95 @@
 import { useEffect, useRef, useState } from 'react';
 
-interface MatrixTextProps {
+interface GlitchTextProps {
     text: string;
     className?: string;
     triggerOnce?: boolean;
 }
 
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
-
-export function MatrixText({ text, className = '', triggerOnce = false }: MatrixTextProps) {
-    const [displayText, setDisplayText] = useState(text);
-    const [isAnimating, setIsAnimating] = useState(false);
+export function GlitchText({ text, className = '', triggerOnce = false }: GlitchTextProps) {
+    const elementRef = useRef<HTMLSpanElement>(null);
+    const intervalRef = useRef<number | null>(null);
     const hasAnimatedRef = useRef(false);
 
-    const animate = () => {
+    const lockSize = (el: HTMLElement) => {
+        const { width, height } = el.getBoundingClientRect();
+        el.style.width = `${width}px`;
+        el.style.height = `${height}px`;
+        el.style.display = 'inline-block';
+        el.style.whiteSpace = 'nowrap';
+    };
+
+    const glitch = () => {
         if (triggerOnce && hasAnimatedRef.current) return;
 
-        setIsAnimating(true);
-        const iterations = 20;
-        let currentIteration = 0;
+        const el = elementRef.current;
+        if (!el) return;
 
-        const interval = setInterval(() => {
-            setDisplayText(
-                text
-                    .split('')
-                    .map((char, index) => {
-                        if (char === ' ') return ' ';
-                        if (index < currentIteration) return text[index];
-                        return CHARS[Math.floor(Math.random() * CHARS.length)];
-                    })
-                    .join('')
-            );
+        lockSize(el);
 
-            currentIteration += 0.5;
+        const words = text.split(' ');
+        const stop = Math.max(...words.map((w) => w.length));
 
-            if (currentIteration >= text.length) {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+
+        let min = 5;
+        let iterations = 0;
+
+        const interval = window.setInterval(() => {
+            el.innerText = words
+                .map((word) => {
+                    return word
+                        .split('')
+                        .map((letter, index) => {
+                            if (iterations > index + min || index > iterations) {
+                                return letter;
+                            } else {
+                                return String(Math.floor(Math.random() * 10));
+                            }
+                        })
+                        .join('');
+                })
+                .join(' ');
+
+            iterations++;
+
+            if (iterations >= stop + min) {
                 clearInterval(interval);
-                setDisplayText(text);
-                setIsAnimating(false);
+                el.innerText = text;
                 if (triggerOnce) hasAnimatedRef.current = true;
             }
-        }, 50);
+        }, 75);
+
+        intervalRef.current = interval;
     };
 
     useEffect(() => {
         if (triggerOnce) {
-            const timer = setTimeout(animate, 500);
+            const timer = setTimeout(glitch, 600);
             return () => clearTimeout(timer);
         }
     }, []);
 
+    useEffect(() => {
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, []);
+
     return (
         <span
+            ref={elementRef}
             className={className}
-            onMouseEnter={!triggerOnce ? animate : undefined}
-            style={{ cursor: triggerOnce ? 'default' : 'pointer' }}
+            data-glitch={text}
+            onMouseEnter={!triggerOnce ? glitch : undefined}
+            style={{
+                display: 'inline-block',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                cursor: triggerOnce ? 'default' : 'pointer',
+            }}
         >
-            {displayText}
+            {text}
         </span>
     );
 }

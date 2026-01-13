@@ -3,7 +3,7 @@ import StatusObra from './components/StatusObra';
 import GalleriesSection from './components/GalleriesSection';
 import AdminPanel from './components/AdminPanel';
 import { ParticleBackground } from './components/ParticleBackground';
-import { MatrixText } from './components/MatrixText';
+import { GlitchText } from './components/MatrixText';
 import stateData from '../data/state.json';
 import { ArrowDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -82,15 +82,15 @@ function App() {
           </p>
           <h1 className="font-serif text-4xl md:text-8xl font-bold mb-6 md:mb-8 leading-tight">
             <span className="hidden md:inline">
-              <MatrixText text="Sindona " className="text-white" />
-              <MatrixText
+              <GlitchText text="Sindona " className="text-white" />
+              <GlitchText
                 text="Paraíso"
                 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
               />
             </span>
             <span className="md:hidden">
-              <MatrixText text="Sindona " className="text-white" triggerOnce />
-              <MatrixText
+              <GlitchText text="Sindona " className="text-white" triggerOnce />
+              <GlitchText
                 text="Paraíso"
                 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
                 triggerOnce
