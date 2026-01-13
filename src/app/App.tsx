@@ -2,10 +2,12 @@ import ObraVsPromessa from './components/ObraVsPromessa';
 import StatusObra from './components/StatusObra';
 import GalleriesSection from './components/GalleriesSection';
 import AdminPanel from './components/AdminPanel';
+import { ParticleBackground } from './components/ParticleBackground';
+import { MatrixText } from './components/MatrixText';
 import stateData from '../data/state.json';
 import { ArrowDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { getSiteContent } from '../lib/supabase';
+import { getSiteContent, updateSiteContent } from '../lib/supabase';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -55,14 +57,12 @@ function App() {
     nota: content.statusObra.textoExplicativo
   } : stateData.sindonaParaiso.metadata.status;
 
-  const footerText = content?.textos || {
+  const { comparacoes = stateData.sindonaParaiso.comparacoes, textos: footerText = {
     footerLegal: "Este relatório é um material visual independente, sem vínculo institucional ou comercial com a construtora ou com os produtores de conteúdo citados. As imagens foram coletadas exclusivamente de fontes públicas, com os devidos créditos aos autores.",
     textoEncerramento: "Fim do relatório",
     autoria: "Relatório visual independente desenvolvido por Roni Amorim de Lima.",
     contato: "roniamorim.ux@gmail.com"
-  };
-
-  const activeComparacoes = content?.comparacoes || stateData.sindonaParaiso.comparacoes;
+  } } = content || {};
 
   return (
     // Snap Container Root
@@ -70,6 +70,9 @@ function App() {
 
       {/* SEÇÃO 1: HERO / CAPA */}
       <section className="min-h-screen md:h-screen w-full snap-start relative flex items-center justify-center bg-stone-950 text-white overflow-hidden py-12 md:py-0">
+        {/* Particle Background - Desktop Only */}
+        <ParticleBackground />
+
         {/* Background Abstract/Gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-800 via-stone-950 to-black opacity-80" />
 
@@ -78,7 +81,21 @@ function App() {
             Relatório Visual Independente
           </p>
           <h1 className="font-serif text-4xl md:text-8xl font-bold mb-6 md:mb-8 leading-tight">
-            Sindona <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Paraíso</span>
+            <span className="hidden md:inline">
+              <MatrixText text="Sindona " className="text-white" />
+              <MatrixText
+                text="Paraíso"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
+              />
+            </span>
+            <span className="md:hidden">
+              <MatrixText text="Sindona " className="text-white" triggerOnce />
+              <MatrixText
+                text="Paraíso"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
+                triggerOnce
+              />
+            </span>
           </h1>
           <p className="text-base md:text-2xl text-stone-300 font-light max-w-2xl mx-auto leading-relaxed px-4">
             Obra vs Promessa: Uma investigação visual detalhada comparando os renders artísticos com a realidade atual do canteiro.
@@ -94,7 +111,7 @@ function App() {
       </section>
 
       {/* SEÇÕES DE COMPARAÇÃO */}
-      {activeComparacoes.map((comparacao: any) => (
+      {comparacoes.map((comparacao: any) => (
         <ObraVsPromessa
           key={comparacao.id}
           titulo={comparacao.titulo}
