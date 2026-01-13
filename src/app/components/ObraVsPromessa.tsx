@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MoveHorizontal, ChevronDown, Info } from 'lucide-react';
 
 interface ObraVsPromessaProps {
+    id?: string;
     titulo: string;
     promessa: {
         imagem: string;
@@ -19,6 +20,7 @@ interface ObraVsPromessaProps {
 }
 
 export default function ObraVsPromessa({
+    id,
     titulo,
     promessa,
     realidade,
@@ -52,7 +54,7 @@ export default function ObraVsPromessa({
 
     if (isMobile) {
         return (
-            <section className="w-full snap-start bg-black text-white py-6 px-4 overflow-x-hidden">
+            <section id={id} className="w-full snap-start bg-black text-white py-6 px-4 overflow-x-hidden">
                 <div className="max-w-2xl mx-auto">
                     {/* Título e Análise */}
                     <div className="mb-8 text-center">
@@ -112,6 +114,7 @@ export default function ObraVsPromessa({
 
     return (
         <section
+            id={id}
             className="relative w-full h-[100vh] snap-start overflow-hidden bg-black select-none"
             ref={containerRef}
             onMouseDown={(e) => { handleInteractionStart(); updatePosition(e.clientX); }}

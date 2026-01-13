@@ -20,8 +20,6 @@ export function GlitchText({ text, className = '', triggerOnce = false }: Glitch
     };
 
     const glitch = () => {
-        if (triggerOnce && hasAnimatedRef.current) return;
-
         const el = elementRef.current;
         if (!el) return;
 
@@ -56,7 +54,6 @@ export function GlitchText({ text, className = '', triggerOnce = false }: Glitch
             if (iterations >= stop + min) {
                 clearInterval(interval);
                 el.innerText = text;
-                if (triggerOnce) hasAnimatedRef.current = true;
             }
         }, 75);
 
@@ -64,7 +61,8 @@ export function GlitchText({ text, className = '', triggerOnce = false }: Glitch
     };
 
     useEffect(() => {
-        if (triggerOnce) {
+        if (triggerOnce && !hasAnimatedRef.current) {
+            hasAnimatedRef.current = true;
             const timer = setTimeout(glitch, 600);
             return () => clearTimeout(timer);
         }
